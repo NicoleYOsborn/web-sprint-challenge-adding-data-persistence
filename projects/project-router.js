@@ -83,4 +83,16 @@ router.get('/project_resources/:id', (req, res)=>{
     })
 })
 
+//STRETCH - project tasks
+router.get('/project_tasks/:id', (req, res)=>{
+    const {id} = req.params;
+    Projects.getProjectTasks(id)
+    .then(tasks =>{
+        res.status(200).json(tasks)
+    })
+    .catch(error=>{
+        res.status(500).json({message: 'unable to get project tasks'})
+    })
+})
+
 module.exports = router;

@@ -7,7 +7,8 @@ module.exports = {
     addProject,
     addResource,
     addTask,
-    getProjectResources
+    getProjectResources,
+    getProjectTasks
 }
 
 function getProjects(){
@@ -47,4 +48,14 @@ function getProjectResources(project_id){
     .select('r.resource_name')
     .where({project_id})
 
+}
+
+//STRETCH - "Get a list of project tasks"
+
+function getProjectTasks(project_id){
+    return db('tasks as t')
+    .join('projects as p', 't.project_id', 'p.id')
+    .select('t.description')
+    .where({project_id})
+    .orderBy('t.id')
 }
