@@ -71,5 +71,16 @@ router.post('/tasks', (req,res)=>{
         res.status(500).json({message: 'unable to post task'})
     })
 })
+//STRETCH - project resources
+router.get('/project_resources/:id', (req, res)=>{
+    const {id} = req.params;
+    Projects.getProjectResources(id)
+    .then(list =>{
+        res.status(200).json(list);
+    })
+    .catch(error=>{
+        res.status(500).json({message: "unable to get resource list"})
+    })
+})
 
 module.exports = router;

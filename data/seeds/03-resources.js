@@ -10,7 +10,7 @@ exports.seed = function(knex) {
         {id: 3, resource_name: 'paintbrushes'},
         {id: 4, resource_name: 'roller'},
         {id: 5, resource_name: 'soapy water'},
-        {id: 6, resource_name: 'spnge'},
+        {id: 6, resource_name: 'sponge'},
         {id: 7, resource_name: 'squeegy'},
         {id: 8, resource_name: 'windex'},
         {id: 9, resource_name: 'paper towels'}
