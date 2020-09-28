@@ -95,4 +95,16 @@ router.get('/project_tasks/:id', (req, res)=>{
     })
 })
 
+//STRETCH - Get all projects that use a particular resource
+router.get('/projects_by_resource/:id', (req, res)=>{
+    const {id} = req.params;
+    Projects.getProjectsByResource(id)
+    .then(projects=>{
+        res.status(200).json(projects)
+    })
+    .catch(error=>{
+        res.status(500).json({message: "unable to get projects that use the given resource"})
+    })
+})
+
 module.exports = router;
